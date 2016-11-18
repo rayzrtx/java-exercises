@@ -6,20 +6,21 @@ import java.util.Scanner;
  */
 public class PingPong {
     public static void main(String[] args) {
-        String playerSide; //
-        int playerSideNumber;
-        //int pingPongBall; getRandomNumber()
+        String playerSide;
         int cpuSide;
-
         int cpuPoint = 0;
         int playerPoint = 0;
         Scanner side = new Scanner(System.in);
+
+        System.out.print("Hey, how's it going? Thanks for playing. What is your name? \n");
+        String playersName = side.next();
+        System.out.println("Nice to meet you, " + playersName + "! I'm PingPong Bot 5000 and I'll be your host. First to 7 wins. Let's get this party started! ");
         do {
-            //playersTurn
-            System.out.print("Please choose a side: Right or Left? \n");
+            // run playersTurn
+            System.out.print("Please choose a side to swing your paddle: Right or Left? \n");
             playerSide = side.next();
 
-            int pingPongBall = getRandomNumber();  //getRandomNumber
+            int pingPongBall = getRandomNumber();
             String sideOfTable;
             if (pingPongBall == 1) {
                 sideOfTable = "Right";
@@ -28,27 +29,38 @@ public class PingPong {
             }
             System.out.println("You chose the " + playerSide + " side and the ball was hit on the " + sideOfTable + " side. ");
             if (playerSide.equals(sideOfTable)) {
-                System.out.println("You hit the ball back. Nice job! It is now the CPU's turn. \n");
+                System.out.println("You hit the ball back. Nice job! It is now the CPU's turn. The score is still CPU: " + cpuPoint + " " + playersName + ": " + playerPoint);
             } else {
                 cpuPoint++;
-                System.out.println("You missed! That's a point to the computer. The score is now CPU: " + cpuPoint + " You: " + playerPoint);
+                System.out.println("You missed! That's a point to the computer. The score is now CPU: " + cpuPoint + " " + playersName + ": " + playerPoint);
                 if (cpuPoint == 7){
-                    System.out.println("Sorry buddy but the CPU just whooped that ass. You are a loser!");
+                    System.out.println("Sorry " + playersName + " but the CPU just whooped that ass. You are a loser!");
                     break;
                 }
-            } //run cpuTurn
-            //getRandomNumber
+            }
+            //run cpuTurn
             pingPongBall = getRandomNumber();
-            System.out.println("ping pong ball number is " + pingPongBall);
+            if (pingPongBall == 1) {
+                sideOfTable = "Right";
+            } else {
+                sideOfTable = "Left";
+            }
+
             cpuSide = getRandomNumber();
-            System.out.println("the cpu number is " + cpuSide);
+            String cpuSideOfTable;
+            if (cpuSide == 1){
+                cpuSideOfTable = "Right";
+            }else {
+                cpuSideOfTable = "Left";
+            }
+            System.out.println("The cpu chose the " + cpuSideOfTable + " side and the ball was hit on the " + sideOfTable + " side. \n");
             if (pingPongBall == cpuSide) {
-                System.out.println("Looks like the CPU nailed it. No point for you but it is now your turn again. \n");
+                System.out.println("Looks like the CPU nailed it. No point for you but it is now your turn again. The score is still CPU: " + cpuPoint + " " + playersName + ": " + playerPoint);
             } else {
                 playerPoint++;
-                System.out.println("The CPU whiffs it. Point for you! The score is now CPU: " + cpuPoint + " You: " + playerPoint);
+                System.out.println("The CPU whiffs it. Point for you! The score is now CPU: " + cpuPoint + " " + playersName + ": " + playerPoint);
                 if (playerPoint == 7){
-                    System.out.println("Congrats! You won!! CPU can suck it!");
+                    System.out.println("Congrats " + playersName + "! You won!! CPU can suck it!");
                     break;
                 }
             }
