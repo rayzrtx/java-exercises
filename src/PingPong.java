@@ -1,10 +1,12 @@
-import java.util.Random;
 import java.util.Scanner;
 
 /**
  * Created by raylinares on 11/16/16.
  */
 public class PingPong {
+
+    public static final int WINNING_SCORE = 7;
+
     public static void main(String[] args) {
         String playerSide;
         int cpuSide;
@@ -33,7 +35,7 @@ public class PingPong {
             } else {
                 cpuPoint++;
                 System.out.println("You missed! That's a point to the computer. The score is now CPU: " + cpuPoint + " " + playersName + ": " + playerPoint);
-                if (cpuPoint == 7){
+                if (cpuPoint == WINNING_SCORE){
                     System.out.println("Sorry " + playersName + " but the CPU just whooped that ass. You are a loser!");
                     break;
                 }
@@ -59,12 +61,12 @@ public class PingPong {
             } else {
                 playerPoint++;
                 System.out.println("The CPU whiffs it. Point for you! The score is now CPU: " + cpuPoint + " " + playersName + ": " + playerPoint);
-                if (playerPoint == 7){
+                if (playerPoint == WINNING_SCORE){
                     System.out.println("Congrats " + playersName + "! You won!! CPU can suck it!");
                     break;
                 }
             }
-        }while (playerPoint < 7 && cpuPoint < 7);
+        }while (playerPoint < WINNING_SCORE && cpuPoint < WINNING_SCORE);
 
     }
     private static int getRandomNumber() {
