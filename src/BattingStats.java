@@ -36,6 +36,7 @@ public class BattingStats {
         sluggingPercentage = getAverage(atBats, totalBases);
         System.out.println("Batters batting average is " + formatter.format(battingAverage));
         System.out.println("Batters slugging percentage is " + formatter.format(sluggingPercentage));
+        sc.close();
 
     }
 
